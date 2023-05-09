@@ -1,12 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from recipes.models import Recipe
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>Home</h1>')
-
-def sobre(request):
-    return HttpResponse('<h1>Sobre</h1>')
-
-def contato(request):
-    return HttpResponse('<h1>Contato</h1>')
+   recipes = Recipe.objects.all().order_by('-id')
+   return render(request, 'recipes/pages/home.html', context={'recipes':recipes})

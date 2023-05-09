@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Receitas</title>
 </head>
 <body>
-    {% for recipe in recipes %}
-        <h4>{{ recipe.title }}</h4>
-    {% endfor %}
+    <div class="container">
+        <div class="row mt-3">
+            {% for recipe in recipes %}
+                <div class="card m-2" style="width: 18rem;">
+                    <img src="{{ recipe.cover.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipe.title}}</h5>
+                        <p class="card-text">{{recipe.description}}</p>
+                        <a href="#" class="btn btn-primary">Preparo</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
 </body>
 </html>
